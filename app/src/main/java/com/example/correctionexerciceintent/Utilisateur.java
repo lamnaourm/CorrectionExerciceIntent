@@ -1,8 +1,9 @@
 package com.example.correctionexerciceintent;
 
+import java.io.Serializable;
 import java.util.Date;
 
-public class Utilisateur {
+public class Utilisateur implements Serializable {
 
     private String login;
     private String password;

@@ -2,10 +2,12 @@ package com.example.correctionexerciceintent;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.Toast;
 
 import java.util.ArrayList;
 import java.util.Date;
@@ -38,6 +40,16 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onClick(View view) {
 
+                for(Utilisateur u : users){
+                    if(u.getLogin().equals(e1.getText().toString()) && u.getPassword().equals(e2.getText().toString())){
+                        Intent i = new Intent(MainActivity.this, DetailsUtilisateur.class);
+                        i.putExtra("user",u);
+                        startActivity(i);
+                        return;
+                    }
+                }
+
+                Toast.makeText(MainActivity.this, "Login/pass erronee", Toast.LENGTH_SHORT).show();
             }
         });
 
